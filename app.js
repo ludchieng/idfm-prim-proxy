@@ -21,7 +21,7 @@ fastify.get("/stop-monitoring", async function (req, res) {
   res.send(await data.json());
 });
 
-fastify.listen({ port: process.env.PORT || 3000 }, function (err, address) {
+fastify.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' }, function (err, address) {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
