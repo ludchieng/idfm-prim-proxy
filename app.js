@@ -1,12 +1,17 @@
 import Fastify from "fastify";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
+import cors from '@fastify/cors'
 
 dotenv.config();
 
 const fastify = Fastify({
   logger: true,
 });
+await fastify.register(cors, { 
+  origin: true
+})
+
 
 fastify.get("/stop-monitoring", async function (req, res) {
   console.log(req.url)
